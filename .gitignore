@@ -1,0 +1,11 @@
+.DS_Store
+
+android/.google
+android/.gradle
+android/.idea
+android/Application/src/main/assets/merged_frozen_graph.pb
+android/Application/build
+
+tensorflow/.idea
+
+tools/.DS_Store

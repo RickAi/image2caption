@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/libs/libandroid_tensorflow_inference_java.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d67e5a002c5e886a51e054cf4d61095c5768f590">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/libandroid_tensorflow_inference_java_278a26870f6369db6872fb53b4360f86d0763d40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_9e85fcc2c90d172e6876d51dcb20c5f538d42aaf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-v13/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9abf11d546d9e0ee82da86df608ced7a961b76ac">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v13-25.0.1_0ad8d4b99154e9a8805ff083088f7e810d54ad54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.0.1_effe00a1ddc481782fd289ad13d9b2c69fe06fee.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.0.1_d8e604f926491f7185518abc6137c4a6f85857d6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.0.1_56eb2a69721f88ec93c306aabfa141e0cd3fae52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_6d37f5f0e61a53a6af4991955d7cb63b37130f98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.2_4cbeebeb4312edafff765d086ad547815de341d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-v13/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cfb91ea7c6890336890ccb42767041af6b863e32">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_134f38c73d8fa9278cc9577ca53e0b6fc8903aa2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.0.1_f235562d16a806862fe3202adb6ee2bd934faa5b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.0.1_b81a651a21c7e8a8353af5db1f067e02734deb5e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_5478f2f7d957052a728e25e2baea5c4f66adb785.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_8f3fdc91bae5543484b87ec5c8a29ca3d1804eb7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_ed0e5f29e2a70e3d52b19db899d42657c938622e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.0.1_f3fe6dd43d9878e9cab2094fc90e401e2b715b18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.0.1_b83d59fdf88d4c652d21043693d3672b529bf4d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.0.1_b8327876ad84c87c5b4c610f7e4e0b011d475132.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-cardview-v7-25.0.1_c30c174135d39f32f46252855247f7b0c0f473df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.0.1_9716ce1efa803584c4a5be41351efebaa152467b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_a6890418e12b5aa90e6a938c71611db655bc4d4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/aiyongbiao/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/build/intermediates/pre-dexed/debug/support-annotations-25.0.1_2cd8e420efa6b82400dbc8cf11bb0677c5c2f51a.jar" />
+    </item>
+
+</items>
