@@ -53,13 +53,13 @@ def forward_pass(io, img_path):
     global output_layer, files
     files = sorted(np.array(os.listdir(img_path)))
     print("#Images:", len(files))
-    n_batch = len(files) / batch_size
+    n_batch = int(len(files) / batch_size)
     with tf.Session() as sess:
         init = tf.global_variables_initializer()
         sess.run(init)
         batch_iter = load_next_batch(sess, io, img_path)
         for i in range(n_batch):
-            batch = batch_iter.next()
+            batch = batch_iter.__next__()
             assert batch.shape == (batch_size, 299, 299, 3)
             feed_dict = {input_layer: batch}
             if i is 0:

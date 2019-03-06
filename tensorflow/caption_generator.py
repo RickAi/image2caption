@@ -33,7 +33,7 @@ class Caption_Generator():
 
         if self.mode == 'train':
             self.vocab, self.wtoidx, self.features, self.captions = data
-            self.num_batch = int(self.features.shape[0]) / self.batch_size
+            self.num_batch = int(int(self.features.shape[0]) / self.batch_size)
 
             print("Converting Captions to IDs")
             self.captions = self.Words_to_IDs(self.wtoidx, self.captions)
@@ -87,8 +87,9 @@ class Caption_Generator():
         nonpadded = map(lambda x: len(
             ID_batch[0]) - x.count(wtoidx["<PAD>"]), ID_batch.tolist())
         ID_batch = np.zeros((ID_batch.shape[0], self.max_len + 2))
+        nonpadded_list = list(nonpadded)
         for ind, row in enumerate(ID_batch):
-            row[:nonpadded[ind]] = 1
+            row[:nonpadded_list[ind]] = 1
         return ID_batch
 
     def get_next_batch(self):
@@ -279,7 +280,7 @@ class Caption_Generator():
                 self.features = self.features[idx]
                 batch_iter = self.get_next_batch()
                 for batch_idx in range(self.num_batch):
-                    batch_features, batch_Ids = batch_iter.next()
+                    batch_features, batch_Ids = batch_iter.__next__()
                     batch_mask = self.generate_mask(batch_Ids, self.wtoidx)
                     run = [global_step, optimizer, self.loss, summary_op]
                     feed_dict = self.create_feed_dict(

@@ -11,7 +11,7 @@ img_path = "Dataset/flickr30k-images/"
 files = sorted(np.array(os.listdir("Dataset/flickr30k-images/")))
 
 batch_size = 10
-n_batch = len(files) / batch_size
+n_batch = int(len(files) / batch_size)
 
 with open('CNNs/vgg16.pb', 'rb') as f:
     fileContent = f.read()
@@ -60,7 +60,7 @@ def forward_pass():
         sess.run(init)
         batch_iter = load_next_batch()
         for i in range(n_batch):
-            batch = batch_iter.next()
+            batch = batch_iter.__next__()
             assert batch.shape == (batch_size, 224, 224, 3)
             feed_dict = {graph.get_tensor_by_name(
                 "import/images:0"): batch}

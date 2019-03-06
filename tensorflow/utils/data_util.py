@@ -65,10 +65,10 @@ def preprocess_flickr_captions(filenames, captions):
     df = pd.DataFrame()
     df['FileNames'] = filenames
     df['caption'] = captions
-    df.caption = df.caption.str.decode('utf')
+    # df.caption = df.caption.str.decode('utf')
     df['caption'] = df['caption'].apply(word_tokenize).apply(
         lambda x: x[:max_len]).apply(" ".join).str.lower()
-    #df = df[:158900] #uncomment if flickr
+    # df = df[:158900] #uncomment if flickr
     return df
 
 
@@ -188,7 +188,7 @@ def generate_captions(
     df = pad_captions(df)
     vocab, wtoidx = generate_vocab(df)
     captions = np.array(df.caption)
-    np.save("Dataset/Training_Data", zip(features, captions))
+    np.save("Dataset/Training_Data", list(zip(features, captions)))
     np.save("Dataset/wordmap", wtoidx)
     np.save("Dataset/vocab", vocab)
 
