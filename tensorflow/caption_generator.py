@@ -37,19 +37,19 @@ class Caption_Generator():
 
             print("Converting Captions to IDs")
             self.captions = self.Words_to_IDs(self.wtoidx, self.captions)
-            if self.resume == 1:
+            if self.resume:
                 self.vocab = np.load("Dataset/vocab.npy").tolist()
                 self.wtoidx = np.load("Dataset/wordmap.npy").tolist()
 
         self.current_epoch = 0
         self.current_step = 0
-        if self.resume is 1 or self.mode == 'test':
+        if self.resume or self.mode == 'test':
             if os.path.isfile('model/save.npy'):
                 self.current_epoch, self.current_step = np.load(
                     "model/save.npy")
             else:
                 print("No Checkpoints, Restarting Training..")
-                self.resume = 0
+                self.resume = False
         self.nb_epochs = config.nb_epochs
 
         if self.mode == 'test':
@@ -259,7 +259,7 @@ class Caption_Generator():
             print("Initializing Training")
             init = tf.global_variables_initializer()
             sess.run(init)
-            if self.resume is 1:
+            if self.resume:
                 print("Loading Previously Trained Model")
                 print(self.current_epoch, "Out of", self.nb_epochs, "Completed in previous run.")
                 try:
@@ -294,7 +294,7 @@ class Caption_Generator():
 
                 print("\nEpoch: ", epoch, "\tAverage Loss: ", np.mean(loss))
                 print("\nSaving Model..\n")
-                saver.save(sess, "./model/model.ckpt", global_step=global_step)
+                saver.save(sess, "./model/model.ckpt", global_step=step)
                 np.save("model/save", (epoch, step))
 
     def init_decode(self):
