@@ -8,5 +8,10 @@ android/Application/src/main/assets/merged_frozen_graph.pb
 android/Application/build
 
 tensorflow/.idea
+tensorflow/ConvNets/inception_v4.pb
+tensorflow/Dataset/flickr30k-images/flickr30k-images/*
 
+tools/flickr30k-images.tar
+tools/flickr30k.tar.gz
+tools/readme.txt
 tools/.DS_Store
