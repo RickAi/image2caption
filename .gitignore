@@ -6,10 +6,12 @@ android/.gradle
 android/.idea
 android/Application/src/main/assets/merged_frozen_graph.pb
 android/Application/build
+android/java_pid*
 
 tensorflow/.idea
 tensorflow/ConvNets/inception_v4.pb
 tensorflow/Dataset/flickr30k-images/flickr30k-images/*
+tensorflow/model/Trained_Graphs/merged_frozen_graph.pb
 
 tools/flickr30k-images.tar
 tools/flickr30k.tar.gz

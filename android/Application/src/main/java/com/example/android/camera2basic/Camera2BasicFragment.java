@@ -73,9 +73,9 @@ public class Camera2BasicFragment extends Fragment
     private static final int IMAGE_CHANNELS = 3;
     private static final int[] DIM_IMAGE=new int[]{1, IMAGE_SIZE, IMAGE_SIZE, IMAGE_CHANNELS};
     private TensorFlowInferenceInterface inferenceInterface;
-    static {
-        System.loadLibrary("tensorflow_inference");
-    }
+//    static {
+//        System.loadLibrary("tensorflow_inference");
+//    }
     private String[] OutputNodes = null;
     private String[] WORD_MAP = null;
     /**
@@ -830,8 +830,7 @@ public class Camera2BasicFragment extends Fragment
     }
 
     TensorFlowInferenceInterface InitSession(){
-        inferenceInterface = new TensorFlowInferenceInterface();
-        inferenceInterface.initializeTensorFlow(getActivity().getAssets(), MODEL_FILE);
+        inferenceInterface = new TensorFlowInferenceInterface(getActivity().getAssets(), MODEL_FILE);
         OutputNodes = LoadFile(OUTPUT_NODES);
         WORD_MAP = LoadFile("idmap");
         return inferenceInterface;
@@ -858,13 +857,13 @@ public class Camera2BasicFragment extends Fragment
     }
 
     String GenerateCaptions(float[] imRGBMatrix){
-        inferenceInterface.fillNodeFloat(INPUT1, DIM_IMAGE, imRGBMatrix);
-        inferenceInterface.runInference(OutputNodes);
+        inferenceInterface.feed(INPUT1, imRGBMatrix, DIM_IMAGE[0], DIM_IMAGE[1], DIM_IMAGE[2], DIM_IMAGE[3]);
+        inferenceInterface.run(OutputNodes);
 
         String result = "";
         int temp[][]= new int[NUM_TIMESTEPS][1];
         for(int i = 0; i<NUM_TIMESTEPS; ++i) {
-            inferenceInterface.readNodeInt(OutputNodes[i], temp[i]);
+            inferenceInterface.fetch(OutputNodes[i], temp[i]);
             if(temp[i][0] == 2/*</S>*/){
                 return result;
             }

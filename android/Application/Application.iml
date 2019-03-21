@@ -101,6 +101,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v13/25.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/org.tensorflow/tensorflow-android/1.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
@@ -118,6 +119,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.0.2@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: com.android.support.test.espresso:espresso-idling-resource-2.2.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.tensorflow:tensorflow-android-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-25.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: javax.annotation:javax.annotation-api:1.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-25.0.1" level="project" />
@@ -132,7 +134,6 @@
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-vector-drawable-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-ui-25.0.1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: __local_jars__:/Users/aiyongbiao/Desktop/projects/image2caption/android/Application/libs/libandroid_tensorflow_inference_java.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support.constraint:constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:cardview-v7-25.0.1" level="project" />
