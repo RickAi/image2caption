@@ -239,6 +239,21 @@ class Caption_Generator():
 
         return image_features, IDs
 
+    def total_params(self):
+        total_parameters = 0
+        for variable in tf.all_variables():
+            # shape is an array of tf.Dimension
+            shape = variable.get_shape()
+            print(shape)
+            print(len(shape))
+            variable_parameters = 1
+            for dim in shape:
+                print(dim)
+                variable_parameters *= dim.value
+            print(variable_parameters)
+            total_parameters += variable_parameters
+        print('Total Parameters=%s', str(total_parameters))
+
     def train(self, loss, inp_dict):
         self.loss = loss
         self.inp_dict = inp_dict
@@ -254,6 +269,8 @@ class Caption_Generator():
         tf.summary.scalar("loss", self.loss)
         tf.summary.scalar("learning_rate", learning_rate)
         summary_op = tf.summary.merge_all()
+
+        self.total_params()
 
         with tf.Session() as sess:
             print("Initializing Training")
@@ -339,7 +356,7 @@ class Caption_Generator():
                 sess.run(init)
                 saver.restore(sess, ckpt_file)
                 for i, feat in enumerate(features):
-                    feat = np.reshape(feat, newshape=(1, 1536))
+                    feat = np.reshape(feat, newshape=(1, 1280)) # 1536
                     caption_IDs = sess.run(
                         self.IDs, feed_dict={
                             self.image_features: feat})

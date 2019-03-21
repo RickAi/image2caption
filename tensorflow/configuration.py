@@ -3,7 +3,7 @@ class Configuration():
     def __init__(self, args):
         self.word_threshold = 2
         self.max_len = 20
-        self.dim_imgft = 1536
+        self.dim_imgft = 1280 # 1536
         self.embedding_size = 256
         self.num_hidden = 256
         self.batch_size = 100

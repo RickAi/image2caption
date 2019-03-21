@@ -6,6 +6,9 @@ import os
 batch_size = 10
 files, input_layer, output_layer = [None]*3
 
+IMAGE_SIZE = 224 # 299
+OUTPUT_SIZE = 1280 # 1536
+
 def build_prepro_graph(inception_path):
     global input_layer, output_layer
     with open(inception_path, 'rb') as f:
@@ -16,22 +19,29 @@ def build_prepro_graph(inception_path):
     tf.import_graph_def(graph_def)
     graph = tf.get_default_graph()
 
-    input_layer = graph.get_tensor_by_name("import/InputImage:0")
+    # for op in graph.get_operations():
+    #     print(str(op.name))
+
+    # input_layer = graph.get_tensor_by_name("import/InputImage:0")
+    # output_layer = graph.get_tensor_by_name(
+    #     "import/InceptionV4/Logits/AvgPool_1a/AvgPool:0")
+
+    input_layer = graph.get_tensor_by_name("import/input:0")
     output_layer = graph.get_tensor_by_name(
-        "import/InceptionV4/Logits/AvgPool_1a/AvgPool:0")
+        "import/MobilenetV2/Logits/AvgPool:0")
 
     input_file = tf.placeholder(dtype=tf.string, name="InputFile")
     image_file = tf.read_file(input_file)
     jpg = tf.image.decode_jpeg(image_file, channels=3)
     png = tf.image.decode_png(image_file, channels=3)
-    output_jpg = tf.image.resize_images(jpg, [299, 299]) / 255.0
+    output_jpg = tf.image.resize_images(jpg, [IMAGE_SIZE, IMAGE_SIZE]) / 255.0
     output_jpg = tf.reshape(
         output_jpg, [
-            1, 299, 299, 3], name="Preprocessed_JPG")
-    output_png = tf.image.resize_images(png, [299, 299]) / 255.0
+            1, IMAGE_SIZE, IMAGE_SIZE, 3], name="Preprocessed_JPG")
+    output_png = tf.image.resize_images(png, [IMAGE_SIZE, IMAGE_SIZE]) / 255.0
     output_png = tf.reshape(
         output_png, [
-            1, 299, 299, 3], name="Preprocessed_PNG")
+            1, IMAGE_SIZE, IMAGE_SIZE, 3], name="Preprocessed_PNG")
     return input_file, output_jpg, output_png
 
 
@@ -46,7 +56,7 @@ def load_next_batch(sess, io, img_path):
         batch = files[batch_idx:batch_idx + batch_size]
         batch = np.array(
             list(map(lambda x: load_image(sess, io, img_path + x), batch)))
-        batch = batch.reshape((batch_size, 299, 299, 3))
+        batch = batch.reshape((batch_size, IMAGE_SIZE, IMAGE_SIZE, 3))
         yield batch
 
 def forward_pass(io, img_path):
@@ -60,12 +70,12 @@ def forward_pass(io, img_path):
         batch_iter = load_next_batch(sess, io, img_path)
         for i in range(n_batch):
             batch = batch_iter.__next__()
-            assert batch.shape == (batch_size, 299, 299, 3)
+            assert batch.shape == (batch_size, IMAGE_SIZE, IMAGE_SIZE, 3)
             feed_dict = {input_layer: batch}
             if i is 0:
                 prob = sess.run(
                     output_layer, feed_dict=feed_dict).reshape(
-                    batch_size, 1536)
+                    batch_size, OUTPUT_SIZE)
             else:
                 prob = np.append(
                     prob,
@@ -73,7 +83,7 @@ def forward_pass(io, img_path):
                         output_layer,
                         feed_dict=feed_dict).reshape(
                         batch_size,
-                        1536),
+                        OUTPUT_SIZE),
                     axis=0)
             if i % 5 == 0:
                 print("Progress:" + str(((i + 1) / float(n_batch) * 100)) + "%\n")
@@ -85,7 +95,7 @@ def forward_pass(io, img_path):
 
 def get_features(sess, io, img, saveencoder=False):
     global output_layer
-    output_layer = tf.reshape(output_layer, [1,1536], name="Output_Features")
+    output_layer = tf.reshape(output_layer, [1,OUTPUT_SIZE], name="Output_Features")
     image = load_image(sess, io, img)
     feed_dict = {input_layer: image}
     prob = sess.run(output_layer, feed_dict=feed_dict)
