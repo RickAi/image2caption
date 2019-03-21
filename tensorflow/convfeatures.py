@@ -45,7 +45,7 @@ def load_next_batch(sess, io, img_path):
     for batch_idx in range(0, len(files), batch_size):
         batch = files[batch_idx:batch_idx + batch_size]
         batch = np.array(
-            map(lambda x: load_image(sess, io, img_path + x), batch))
+            list(map(lambda x: load_image(sess, io, img_path + x), batch)))
         batch = batch.reshape((batch_size, 299, 299, 3))
         yield batch
 

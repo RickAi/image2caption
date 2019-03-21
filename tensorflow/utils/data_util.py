@@ -43,7 +43,7 @@ def preprocess_coco_captions(filenames, captions):
     df = pd.DataFrame()
     df['FileNames'] = filenames
     df['caption'] = captions
-    df.caption = df.caption.str.decode('utf')
+    # df.caption = df.caption.str.decode('utf')
     df['caption'] = df['caption'].apply(word_tokenize).apply(lambda x: x[:20]).apply(" ".join).str.lower()
 
     anomalies = df.FileNames.value_counts()[(df.FileNames.value_counts() > 5)].index.tolist()
