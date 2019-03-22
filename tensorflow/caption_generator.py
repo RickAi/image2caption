@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
 from random import shuffle
+
+from tensorflow.python.framework import dtypes
+
 from convfeatures import *
 import tensorflow as tf
 from PIL import Image
@@ -150,7 +153,7 @@ class Caption_Generator():
                 self.max_words,
                 'Bias_target', bias_init=self.bias_init)}
 
-        self.lstm_cell = tf.contrib.rnn.BasicLSTMCell(self.num_hidden)
+        self.lstm_cell = tf.nn.rnn_cell.GRUCell(self.num_hidden)
 
         if self.dropout:
             self.lstm_cell = tf.contrib.rnn.DropoutWrapper(
@@ -173,9 +176,8 @@ class Caption_Generator():
         return feed_dict
 
     def build_train_graph(self):
-        init_c = tf.zeros([self.batch_size, self.lstm_cell.state_size[0]])
-        init_h = tf.zeros([self.batch_size, self.lstm_cell.state_size[1]])
-        initial_state = (init_c, init_h)
+        init_c = tf.zeros([self.batch_size, self.lstm_cell.state_size])
+        initial_state = init_c
         image_emb = tf.matmul(self.inp_dict["features"], self.image_embedding[
                               'weights']) + self.image_embedding['biases']
         with tf.variable_scope("LSTM"):
