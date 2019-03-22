@@ -649,6 +649,9 @@ public class Camera2BasicFragment extends Fragment
                                 // Auto focus should be continuous for camera preview.
                                 mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE,
                                         CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
+                                int rotation = getActivity().getWindowManager().getDefaultDisplay().getRotation();
+                                mPreviewRequestBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
+
                                 // Flash is automatically enabled when necessary.
                                 //setAutoFlash(mPreviewRequestBuilder);
 
@@ -842,6 +845,7 @@ public class Camera2BasicFragment extends Fragment
 
     float[] Preprocess(Bitmap imBitmap){
         imBitmap = Bitmap.createScaledBitmap(imBitmap, IMAGE_SIZE, IMAGE_SIZE, true);
+
         int[] intValues = new int[IMAGE_SIZE * IMAGE_SIZE];
         float[] floatValues = new float[IMAGE_SIZE * IMAGE_SIZE * 3];
 
@@ -889,7 +893,6 @@ public class Camera2BasicFragment extends Fragment
                     @Override
                     public void run() {
                         textView.setText(text);
-
                     }
                 });
             } finally {
