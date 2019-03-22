@@ -66,10 +66,10 @@ public class Camera2BasicFragment extends Fragment
 
     private TextView textView;
     private static final String MODEL_FILE = "file:///android_asset/merged_frozen_graph.pb";
-    private static final String INPUT1 = "encoder/import/InputImage:0";
+    private static final String INPUT1 = "encoder/import/input:0";
     private static final String OUTPUT_NODES = "DecoderOutputs.txt";
     private static final int NUM_TIMESTEPS = 22;
-    private static final int IMAGE_SIZE = 299;
+    private static final int IMAGE_SIZE = 224;
     private static final int IMAGE_CHANNELS = 3;
     private static final int[] DIM_IMAGE=new int[]{1, IMAGE_SIZE, IMAGE_SIZE, IMAGE_CHANNELS};
     private TensorFlowInferenceInterface inferenceInterface;
