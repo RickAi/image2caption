@@ -22,6 +22,7 @@ def build_prepro_graph(inception_path):
     # for op in graph.get_operations():
     #     print(str(op.name))
 
+    # [n.name for n in tf.get_default_graph().as_graph_def().node]
     # input_layer = graph.get_tensor_by_name("import/InputImage:0")
     # output_layer = graph.get_tensor_by_name(
     #     "import/InceptionV4/Logits/AvgPool_1a/AvgPool:0")

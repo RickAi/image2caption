@@ -214,9 +214,7 @@ class Caption_Generator():
             tf.float32, [1, self.dim_imgft], name='Input_Features')
         image_emb = tf.matmul(image_features, self.image_embedding[
                               'weights']) + self.image_embedding['biases']
-        init_c = tf.zeros([1, self.lstm_cell.state_size[0]])
-        init_h = tf.zeros([1, self.lstm_cell.state_size[1]])
-        initial_state = (init_c, init_h)
+        initial_state = tf.zeros([1, self.lstm_cell.state_size])
         IDs = []
         with tf.variable_scope("LSTM"):
             output, state = self.lstm_cell(image_emb, initial_state)
@@ -358,7 +356,7 @@ class Caption_Generator():
                 sess.run(init)
                 saver.restore(sess, ckpt_file)
                 for i, feat in enumerate(features):
-                    feat = np.reshape(feat, newshape=(1, 1280)) # 1536
+                    feat = np.reshape(feat, newshape=(1, OUTPUT_SIZE)) # 1536
                     caption_IDs = sess.run(
                         self.IDs, feed_dict={
                             self.image_features: feat})
