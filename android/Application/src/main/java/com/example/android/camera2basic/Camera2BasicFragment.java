@@ -30,6 +30,7 @@ import android.media.ImageReader;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v13.app.FragmentCompat;
 import android.support.v4.content.ContextCompat;
@@ -840,7 +841,7 @@ public class Camera2BasicFragment extends Fragment
     }
 
     String runModel(Bitmap imBitmap){
-        return  GenerateCaptions(Preprocess(imBitmap));
+        return GenerateCaptions(Preprocess(imBitmap));
     }
 
     float[] Preprocess(Bitmap imBitmap){
@@ -861,6 +862,7 @@ public class Camera2BasicFragment extends Fragment
     }
 
     String GenerateCaptions(float[] imRGBMatrix){
+        long startTime = SystemClock.currentThreadTimeMillis();
         inferenceInterface.feed(INPUT1, imRGBMatrix, DIM_IMAGE[0], DIM_IMAGE[1], DIM_IMAGE[2], DIM_IMAGE[3]);
         inferenceInterface.run(OutputNodes);
 
@@ -869,6 +871,8 @@ public class Camera2BasicFragment extends Fragment
         for(int i = 0; i<NUM_TIMESTEPS; ++i) {
             inferenceInterface.fetch(OutputNodes[i], temp[i]);
             if(temp[i][0] == 2/*</S>*/){
+                long costTime = SystemClock.currentThreadTimeMillis() - startTime;
+                Log.i("GenerateCaptions", "GenerateCaptions end, cost time=" + costTime + "ms");
                 return result;
             }
             result += WORD_MAP[temp[i][0]]+" ";
@@ -883,6 +887,7 @@ public class Camera2BasicFragment extends Fragment
         public void onImageAvailable(ImageReader reader) {
             Image image = null;
             try {
+                long startTime = SystemClock.currentThreadTimeMillis();
                 image = reader.acquireLatestImage();
                 ByteBuffer buffer = image.getPlanes()[0].getBuffer();
                 byte[] imageBytes = new byte[buffer.remaining()];
@@ -895,6 +900,8 @@ public class Camera2BasicFragment extends Fragment
                         textView.setText(text);
                     }
                 });
+                long costTime = SystemClock.currentThreadTimeMillis() - startTime;
+                Log.i("onImageAvailable", "onImageAvailable end, cost time=" + costTime + "ms");
             } finally {
                 if (image != null) {
                     image.close();
