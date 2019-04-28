@@ -4,6 +4,12 @@
 
 The live demo video is available at the [demo.mp4](demo/demo.mp4)
 
+## Pre-Trained
+
+* If you don't want to train CNN model from scratch, you can download the MobileNetV2 pre-trained model is at: [TensorFlow MobileNetV2](https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet); You will need to train the RNN model with the commands in Training step.
+* If you don't want to train the whole model, you can download the pre-trained model at: [Pre-Trained Models](https://drive.google.com/open?id=1csIAmgP32Ml1ppg3C-9Upn_VCz3O3Ds8), and put it into android project fold, and build the apk.
+* If you even don't want to build the apk, you can download the pre-built apk at: [Pre-Built Apk](https://drive.google.com/open?id=1w1m2TufWpS1BeAGei5_5F9eEjQEXNLPS)
+
 ## Traning
 
 ![](demo/train.jpg)
@@ -22,6 +28,8 @@ python main.py --mode test --inception_path ConvNets/mobilenet_v2.pb --image_pat
 
 ## Generate Model
 
+If the model have been trained, a convenient shell file is available at [generate.sh](tensorflow/generate.sh)
+
 ```bash
 python main.py --mode test --image_path ./Images/street.jpg --inception_path ./ConvNets/mobilenet_v2.pb --saveencoder --savedecoder
 
@@ -30,10 +38,12 @@ python save_graph.py --mode encoder --model_folder ../model/Encoder/
 python save_graph.py --mode decoder --model_folder ../model/Decoder/
 
 # generate .pb
+# for now, pb is enough for inference
 python merge_graphs.py --encpb ../model/Trained_Graphs/encoder_frozen_model.pb --decpb ../model/Trained_Graphs/decoder_frozen_model.pb
 
 cd model/Trained_Graphs/
 # generate .tflite
+# there are some ops not support in the latest tflite library
 tflite_convert \
   --output_file=./merged_frozen_graph.tflite \
   --graph_def_file=./merged_frozen_graph.pb \
